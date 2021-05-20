@@ -1,21 +1,21 @@
 import pytest
 
-from rid import __version__
-from rid import Resource, NotResourceError, InvalidResourceError
+from resources import InvalidResourceError, NotResourceError, Resource, __version__
 
 
 def test_version():
-    assert __version__ == '0.1.0'
+    assert __version__ == "0.1.0"
 
 
 def _resource(resource_id=None):
     return Resource(
-            partition="partition",
-            service="service",
-            region="region",
-            resource_type="resource_type",
-            account_id="account_id",
-            resource_id=resource_id)
+        partition="partition",
+        service="service",
+        region="region",
+        resource_type="resource_type",
+        account_id="account_id",
+        resource_id=resource_id,
+    )
 
 
 def test_resource_instanciable():
@@ -24,11 +24,11 @@ def test_resource_instanciable():
 
 def test_resource_can_generate_id():
     got = str(_resource(1))
-    assert got == 'rid:partition:service:region:account_id:resource_type:1'
+    assert got == "rid:partition:service:region:account_id:resource_type:1"
 
 
 def test_resource_can_generate_empty_id():
-    preffix = 'rid:partition:service:region:account_id:resource_type:'
+    preffix = "rid:partition:service:region:account_id:resource_type:"
     got = str(_resource())
     assert got.startswith(preffix)
     assert got != preffix
@@ -45,7 +45,9 @@ def test_resource_raise_invalid_resource_error():
 
 
 def test_resource_from_string():
-    resource = Resource.from_string('rid:partition:service:region:account_id:resource_type:resource_id')
+    resource = Resource.from_string(
+        "rid:partition:service:region:account_id:resource_type:resource_id"
+    )
     assert resource.in_partition("partition")
     assert resource.is_service("service")
     assert resource.in_region("region")

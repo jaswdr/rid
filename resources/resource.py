@@ -1,6 +1,6 @@
 from uuid import uuid4
 
-from rid import exceptions
+from resources import exceptions
 
 RID_PREFFIX = "rid"
 RID_SEP = ":"
