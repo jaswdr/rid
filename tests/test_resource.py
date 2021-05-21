@@ -1,6 +1,6 @@
 import pytest
 
-from rid import InvalidResourceError, NotResourceError, Resource, __version__
+from jaswdr_rid import InvalidResourceError, NotResourceError, Resource, __version__
 
 
 def test_version():
@@ -48,12 +48,12 @@ def test_resource_from_string():
     resource = Resource.from_string(
         "rid:partition:service:region:account_id:resource_type:resource_id"
     )
-    assert resource.in_partition("partition")
-    assert resource.is_service("service")
-    assert resource.in_region("region")
-    assert resource.belongs_to("account_id")
-    assert resource.is_resource_type("resource_type")
-    assert resource.has_id("resource_id")
+    assert resource.partition == "partition"
+    assert resource.service == "service"
+    assert resource.region == "region"
+    assert resource.account_id == "account_id"
+    assert resource.resource_type == "resource_type"
+    assert resource.resource_id == "resource_id"
 
 
 def test_can_be_compared():
@@ -63,27 +63,3 @@ def test_can_be_compared():
 
 def test_return_false_when_comparing_to_no_resource():
     assert _resource(1) != {}
-
-
-def test_in_partition():
-    assert _resource().in_partition("partition")
-
-
-def test_is_service():
-    assert _resource().is_service("service")
-
-
-def test_in_region():
-    assert _resource().in_region("region")
-
-
-def test_belongs_to():
-    assert _resource(1).belongs_to("account_id")
-
-
-def test_is_resource_type():
-    assert _resource().is_resource_type("resource_type")
-
-
-def test_has_id():
-    assert _resource(1).has_id(1)

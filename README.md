@@ -6,22 +6,22 @@
 Install the resources package.
 
 ```bash
-$ pip install resources
+$ pip install jaswdr-rid
 ```
 
 Generate new resources ids.
 
 ```python
-import resources
+from jaswdr_rid import Resource
 
-generator = resources.Generator(
+resource = Resource(
     partition="prod",
     service="my_service",
     region="eu-west-1",
     account_id="1",
+    resource_type="user"
 )
 
-_id = generator.id()
-
-print(_id)
+print(str(resource))
+# 'rid:prod:my_service:eu-west-1:1:user:21a59a0e-36bb-4592-84de-d13e3bbea982'
 ```

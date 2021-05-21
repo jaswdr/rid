@@ -1,6 +1,6 @@
 ISORT_ARGS := --combine-star --combine-as --order-by-type --thirdparty scrapy --multi-line 3 --trailing-comma --force-grid-wrap 0 --use-parentheses --line-width 88
 
-SRC_DIRS := ./resources
+SRC_DIRS := ./jaswdr_rid
 TST_DIRS := ./tests
 
 check:
@@ -18,5 +18,5 @@ tags:
 test:
 	coverage run --source $(SRC_DIRS) -m pytest
 
-cov:
+cov: test
 	coverage report -m

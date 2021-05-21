@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "jaswdr-rid"
+name = "jaswdr_rid"
 version = "0.1.0"
 description = ""
 authors = ["Jonathan Schweder <jonathanschweder@gmail.com>"]
