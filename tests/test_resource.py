@@ -1,6 +1,6 @@
 import pytest
 
-from resources import InvalidResourceError, NotResourceError, Resource, __version__
+from rid import InvalidResourceError, NotResourceError, Resource, __version__
 
 
 def test_version():
