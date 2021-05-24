@@ -4,7 +4,7 @@ from jaswdr_rid import InvalidResourceError, NotResourceError, Resource, __versi
 
 
 def test_version():
-    assert __version__ == "1.0.2"
+    assert __version__ == "1.0.3"
 
 
 def _resource(resource_id=None):
