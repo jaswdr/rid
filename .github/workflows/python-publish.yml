@@ -3,8 +3,6 @@
 
 name: Upload Python Package
 
-environment: Default
-
 on:
   release:
     types: [created]
