@@ -3,6 +3,8 @@
 
 name: Python package
 
+environment: Default
+
 on:
   push:
     branches: [ master ]
